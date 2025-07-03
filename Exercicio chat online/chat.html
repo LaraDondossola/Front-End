@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html> 
+
+  <head> 
+    <title>CHAT ONLINE</title> 
+    <link rel="stylesheet" href="styles.css" /> 
+  </head> 
+
+  <body> 
+    <div id = "tudo"> 
+
+    <div> 
+    <h1 class="titulo">ATENDIMENTO ON-LINE </h1>  
+    </div> 
+
+    <div id = "chat"> 
+
+      <div id = "bloco_atendente"> 
+      <div id = "atendente"> <strong>Atendente diz: </strong></div> 
+      <div id = "msg_atendente">Oii senhor!</div> 
+      <div id = "atendente"> <strong>Atendente diz: </strong></div> 
+      <div id = "msg_atendente">Como posso ajudar?</div> 
+      </div> 
+
+      <div id = "bloco_requerente"> 
+      <div id = "requerente"> <strong>Requerente diz: </strong></div> 
+      <div id = "msg_requerente">Oiii</div> 
+      <div id = "requerente"> <strong>Requerente diz: </strong></div> 
+      <div id = "msg_requerente">Preciso de ajuda.</div> 
+      </div> 
+
+    </div> 
+
+      <form id = "msg_enviar"> 
+      <input type="text" id="message" placeholder="Digite sua mensagem..."  /> 
+      <button type="submit">Enviar</button> 
+      </form>   
+
+    </div> 
+
+    <script>
+        const formulario = document.getElementById("msg_enviar") 
+        const campoMensagem = document.getElementById("message"); 
+        const areaMensagens = document.getElementById("chat"); 
+
+        let mensagens = [] 
+        
+        function adicionarMensagem(texto) { 
+            const novaMensagem = document.createElement("div"); 
+            novaMensagem.classList.add("msg_requerente"); 
+
+            novaMensagem.innerHTML = `<div id = "requerente"><strong>Requerente diz:</strong></div> 
+            <div id = "msg_requerente">${texto}</div>`; 
+
+            areaMensagens.appendChild(novaMensagem); 
+
+            areaMensagens.scrollTop = areaMensagens.scrollHeight; 
+
+        } 
+
+        function exibirMensagens(texto){ 
+            adicionarMensagem(texto); 
+        } 
+
+        if(localStorage.getItem("mensagensSalvas")){ 
+            mensagens = JSON.parse(localStorage.getItem("mensagensSalvas")); 
+
+            mensagens.forEach(exibirMensagens); 
+        } 
+
+        formulario.addEventListener("submit", function(evento){ 
+            evento.preventDefault(); 
+
+            const texto = campoMensagem.value; 
+
+            if (texto !== ""){ 
+                adicionarMensagem(texto); 
+                mensagens.push(texto); 
+
+                campoMensagem.value = ""; 
+
+                localStorage.setItem("mensagensSalvas", JSON.stringify(mensagens)); 
+            }
+        }); 
+    </script>
+
+  </body> 
+
+</html> 
+
+ 
+
+ 

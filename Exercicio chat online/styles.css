@@ -1,0 +1,68 @@
+#tudo{ 
+    font-style:arial; 
+    border: 1px solid black; 
+    max-width: 300px; 
+    margin: 12px auto; 
+} 
+
+.titulo{ 
+    margin: 1px; 
+    padding: 2px; 
+    font-size: 20px ; 
+    font-style: arial; 
+    text-align: left; 
+    color: purple; 
+} 
+
+#chat { 
+    border: 1px solid black; 
+    height: 300px; padding: 5px; 
+    overflow-y: auto; 
+    display: flex; 
+    flex-direction: column; 
+} 
+
+#msg_atendente, #msg_requerente { 
+    border: 1px solid black; 
+    max-width: 70%; 
+    border-radius: 
+    4px; 
+    text-align: left; 
+} 
+
+#msg_requerente {
+     align-self: flex end; 
+     margin-left: auto; 
+    } 
+
+#msg_atendente { 
+    padding: 3px
+ } 
+
+#requerente { 
+    text-align: right; 
+    padding: 3px; 
+}  
+
+#atendente { 
+    text-align: left; 
+    padding: 3px; 
+} 
+
+#msg_enviar { 
+    display: flex; 
+} 
+
+#message {
+    flex-grow: 1; 
+    padding: 1px;
+    margin: 3px; 
+} 
+
+button { 
+    cursor: pointer; 
+} 
+
+button:hover { 
+    background-color: pink; 
+} 
